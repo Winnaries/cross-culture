@@ -11,10 +11,15 @@ const IndexPage = ({ data }) => {
   const arch002 = data.arch002.childImageSharp.fluid
   const arch003 = data.arch003.childImageSharp.fluid
 
+  const eng001 = data.eng001.childImageSharp.fluid
+  const eng002 = data.eng002.childImageSharp.fluid
+  const eng003 = data.eng003.childImageSharp.fluid
+  const eng004 = data.eng004.childImageSharp.fluid
+
   return (
     <>
       <Seo title="Cultural Identity" />
-      <Main>
+      <ArchitectSection>
         <Container>
           <TopSpacer />
           <Grid>
@@ -106,7 +111,103 @@ const IndexPage = ({ data }) => {
             </RightCanvasWrapper>
           </Grid>
         </Container>
-      </Main>
+      </ArchitectSection>
+      <EngineeringSection>
+        <Container>
+          <Grid>
+            <LeftCanvasWrapper>
+              <SectionTitle>
+                <Sparkles color="hsl(330, 79%, 56%)">
+                  Faculty of Engineering
+                </Sparkles>
+              </SectionTitle>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                The Faculty of Engineering revolves around a lot of fun but also
+                serious in terms of <Highlight>work and exams</Highlight>. There
+                are around 10 people in a friend group and the studying they do
+                is based on notes from older engineering students that they use
+                as a guideline. A common goal among engineering students is to
+                collect experience and knowledge needed to start a business of
+                their own. Therefore the learning environment can be very
+                stressful. Even though the materials needed for understanding in
+                this faculty is very hard, the lecturers don’t cover enough
+                topics that are taught making the exams extremely difficult
+                among the students. So in order to fix the problem, they usually
+                spend more time learning and understanding about the materials
+                on their own rather than attending lectures since a lot of
+                thinking and a clear understanding is needed. Because of the
+                stressful environment, they tend to loosen up their stress by
+                having peer comfort in both studying and going out which is a
+                characteristic of a <Highlight>collectivistic</Highlight>{" "}
+                environment.
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Eng001>
+                <ImageId>ENG-001</ImageId>
+                <Img fluid={eng001} alt="" />
+                <ImageLabel>
+                  <ImageTitle>Guys, can you do this?</ImageTitle>
+                  <ImageAlt>Raeng</ImageAlt>
+                </ImageLabel>
+              </Eng001>
+            </RightCanvasWrapper>
+            <LeftCanvasWrapper>
+              <Eng003>
+                <ImageId>ENG-002</ImageId>
+                <Img fluid={eng003} alt="" fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Robotics and Mechanics</ImageTitle>
+                </ImageLabel>
+              </Eng003>
+              <Eng004>
+                <Img fluid={eng004} alt="" fadeIn={true} />
+              </Eng004>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                The time duration between the midterm exams and final exams are
+                about 2 months. They typically spend the first 3 weeks having as
+                much fun as possible (eg. going to parties and getting
+                <Highlight> drunk</Highlight>). And after the first 3 weeks,
+                they would often go to study at cafes after class because they
+                can ask each other questions on the materials that they learn.
+                The environment in this faculty is not competitive at all
+                because students help each other to maintain a GPA around 3.25.
+              </Text>
+            </TextWrapper>
+            <TextWrapper>
+              <Text>
+                The unique culture in this faculty is that students work with a
+                lot of physical things rather than just learning about theories.
+                By doing this, information or tasks they learn can be applied to
+                real life scenarios when they work in the future. This faculty
+                is also very chill since students can wear{" "}
+                <Highlight>flip flops</Highlight> to class almost everyday apart
+                from lab days. It's an easy learning environment apart from the
+                workload. Gradually, there will be more project-oriented
+                assignments each year rather than a lot of theories and
+                textbooks compared to the first year. So to conclude, this
+                faculty is overall a collectivistic faculty. This is because
+                peers hangout with each other with non work related activities
+                and also help each other with learning materials as well.
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Eng002>
+                <ImageId>ENG-003</ImageId>
+                <Img fluid={eng002} alt="" />
+                <ImageLabel>
+                  <ImageTitle>After Exam</ImageTitle>
+                  <ImageAlt>Motoki Tonn</ImageAlt>
+                </ImageLabel>
+              </Eng002>
+            </RightCanvasWrapper>
+          </Grid>
+        </Container>
+      </EngineeringSection>
     </>
   )
 }
@@ -136,13 +237,50 @@ export const query = graphql`
         }
       }
     }
+    eng001: file(
+      relativePath: { eq: "engineerings/thisisengineering-raeng.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500, maxHeight: 350) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    eng002: file(relativePath: { eq: "engineerings/motoki-tonn.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 500, maxHeight: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    eng003: file(
+      relativePath: {
+        eq: "engineerings/thisisengineering-raeng-Kar3dF1gsz8-unsplash.jpg"
+      }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 120, maxHeight: 300, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    eng004: file(
+      relativePath: {
+        eq: "engineerings/thisisengineering-raeng-x4EDVVNGdMU-unsplash.jpg"
+      }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 200, maxHeight: 500, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
 const Highlight = styled.span`
   font-family: "Sriracha";
   font-weight: 500;
-  color: hsl(201, 79%, 46%);
 `
 
 const Main = styled.div`
@@ -155,12 +293,12 @@ const Main = styled.div`
 
 const TopSpacer = styled.div`
   width: 100%;
-  height: 5rem;
+  height: 4rem;
 `
 
 const Container = styled.div`
   width: min(1200px, 100%);
-  height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -224,6 +362,26 @@ const Canvas = styled.div`
   width: 100%;
   height: auto;
 `
+const Eng001 = styled(CanvasWrapper)``
+
+const Eng002 = styled(CanvasWrapper)`
+  width: 100%;
+  right: 0;
+`
+
+const Eng003 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 120px;
+  top: -60px;
+  right: 0;
+`
+
+const Eng004 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 120px;
+  right: 140px;
+  top: 40px;
+`
 
 const ImageLabel = styled.div`
   margin-top: 0.5rem;
@@ -282,5 +440,17 @@ const TextWrapper = styled.div`
 
   & > *:not(:first-child) {
     margin-top: 1.5rem;
+  }
+`
+
+const ArchitectSection = styled(Main)`
+  ${Highlight} {
+    color: hsl(201, 79%, 46%);
+  }
+`
+
+const EngineeringSection = styled(Main)`
+  ${Highlight} {
+    color: hsl(328, 85%, 46%);
   }
 `
