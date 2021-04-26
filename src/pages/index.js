@@ -16,6 +16,10 @@ const IndexPage = ({ data }) => {
   const eng003 = data.eng003.childImageSharp.fluid
   const eng004 = data.eng004.childImageSharp.fluid
 
+  const med001 = data.med001.childImageSharp.fluid
+  const med002 = data.med002.childImageSharp.fluid
+  const med003 = data.med003.childImageSharp.fluid
+
   return (
     <>
       <Seo title="Cultural Identity" />
@@ -25,7 +29,10 @@ const IndexPage = ({ data }) => {
           <Grid>
             <CanvasWrapper>
               <SectionTitle>
-                <Sparkles>Faculty of Architecture</Sparkles>
+                <Sparkles>
+                  Faculty of <br />
+                  Architecture
+                </Sparkles>
               </SectionTitle>
             </CanvasWrapper>
             <TextWrapper>
@@ -112,13 +119,102 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Container>
       </ArchitectSection>
+      <DoctorSection>
+        <Container>
+          <Grid>
+            <CanvasWrapper>
+              <SectionTitle>
+                <Sparkles>
+                  Faculty of <br /> Medcine
+                </Sparkles>
+              </SectionTitle>
+            </CanvasWrapper>
+            <TextWrapper>
+              <Text>
+                Known to be the most challenging faculty leaves no other than
+                the faculty of medicine. This faculty involves a lot of
+                studying, losing lots of sleep from all the workload, and
+                importantly, extremely stressful. This faculty is a large sized
+                faculty since it combines both international curriculum and Thai
+                curriculum in 1. The friend group in this faculty is around 10
+                people. Even though they want to study and share ideas with each
+                other, there is a lot of content to cover in a short amount of
+                time considering how many{" "}
+                <Highlight>tests and quizzes</Highlight> they have per week.
+                Usually, they will study alone first and then sit in groups to
+                discuss the materials before doing an exam. However, the
+                environment in the faculty of medicine is mainly
+                <Highlight> individualistic</Highlight>.
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Med001>
+                <ImageId>MED-001</ImageId>
+                <Img fluid={med001} alt="" fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Best way to read a book</ImageTitle>
+                  <ImageAlt>Tony Tran</ImageAlt>
+                </ImageLabel>
+              </Med001>
+            </RightCanvasWrapper>
+            <LeftCanvasWrapper>
+              <Med002>
+                <ImageId>MED-002</ImageId>
+                <Img fluid={med002} alt="" fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Coffee = Ultra learning</ImageTitle>
+                </ImageLabel>
+              </Med002>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                As they gradually grow older, they will reach a point where they
+                have to be trained in order to become doctors in real life.
+                Therefore, they each get a special case from different patients.
+                They cannot depend on each other to evaluate what diseases the
+                patient has etc. They have to work on their own. The culture
+                here is also <Highlight>highly competitive</Highlight> since the
+                grades aren’t standardized. It is based on other students as
+                well. According to this, they won’t be 100% with each other in
+                sharing ideas with each other since they also don’t want to fail
+                and are also VERY serious about their GPA and being top of the
+                class.
+              </Text>
+            </TextWrapper>
+            <TextWrapper>
+              <Text>
+                Apart from the stressful and competitive side, in their
+                freetime, they like to go to{" "}
+                <Highlight>cafes to relax or go to cooking class</Highlight> at
+                central in order to relieve their stress. The unique cultural
+                trait in this faculty is they learn so much and it’s super
+                stressful for a consecutive 6 years. They also have to handle
+                situations that require life and death so it’s more serious than
+                other faculties in terms of life applications. So to conclude,
+                their studying plan is a very individualistic culture unlike
+                their freetime plan. In their freetime, they hangout and bond
+                with their friends showing a more of a collectivist side.
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Med003>
+                <ImageId>MED-003</ImageId>
+                <Img fluid={med003} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Relaxing cooking</ImageTitle>
+                </ImageLabel>
+              </Med003>
+            </RightCanvasWrapper>
+          </Grid>
+        </Container>
+      </DoctorSection>
       <EngineeringSection>
         <Container>
           <Grid>
             <LeftCanvasWrapper>
               <SectionTitle>
-                <Sparkles color="hsl(330, 79%, 56%)">
-                  Faculty of Engineering
+                <Sparkles color="hsl(360, 83%, 62%)">
+                  Faculty of <br /> Engineering
                 </Sparkles>
               </SectionTitle>
             </LeftCanvasWrapper>
@@ -275,6 +371,27 @@ export const query = graphql`
         }
       }
     }
+    med001: file(relativePath: { eq: "medicines/tony-tran.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 300, maxHeight: 500, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    med002: file(relativePath: { eq: "medicines/jojo-sharemyfoodd.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 200, maxHeight: 400, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    med003: file(relativePath: { eq: "medicines/max-delsid.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 180, maxHeight: 180, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
@@ -293,7 +410,7 @@ const Main = styled.div`
 
 const TopSpacer = styled.div`
   width: 100%;
-  height: 4rem;
+  height: 2rem;
 `
 
 const Container = styled.div`
@@ -333,6 +450,7 @@ const SectionTitle = styled.h2`
   font-weight: 500;
   line-height: 1.4;
   padding: 0;
+  width: max-content;
 `
 
 const CanvasWrapper = styled.div`
@@ -367,6 +485,23 @@ const Eng001 = styled(CanvasWrapper)``
 const Eng002 = styled(CanvasWrapper)`
   width: 100%;
   right: 0;
+`
+
+const Med002 = styled(CanvasWrapper)`
+  width: 200px;
+  right: 0;
+  position: absolute;
+`
+
+const Med001 = styled(CanvasWrapper)`
+  width: min(275px, 100%);
+  position: absolute;
+`
+
+const Med003 = styled(CanvasWrapper)`
+  width: 180px;
+  height: 180px;
+  position: relative;
 `
 
 const Eng003 = styled(CanvasWrapper)`
@@ -450,7 +585,40 @@ const ArchitectSection = styled(Main)`
 `
 
 const EngineeringSection = styled(Main)`
+  background-color: hsl(341, 100%, 98%);
+
+  ${SectionTitle},
+  ${Text} {
+    color: hsl(322, 93%, 27%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(324, 48%, 60%);
+  }
+
   ${Highlight} {
-    color: hsl(328, 85%, 46%);
+    color: hsl(354, 85%, 44%);
+  }
+`
+
+const DoctorSection = styled(Main)`
+  background-color: hsl(152, 68%, 96%);
+
+  ${Text} {
+    color: hsl(170, 97%, 15%);
+  }
+
+  ${SectionTitle} {
+    color: hsl(168, 80%, 23%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(168, 60%, 40%);
+  }
+
+  ${Highlight} {
+    color: hsl(42, 87%, 55%);
   }
 `
