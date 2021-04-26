@@ -4,6 +4,7 @@ import "../components/layout.css"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import Seo from "../components/seo"
+import Sparkles from "../components/sparkles"
 
 const IndexPage = ({ data }) => {
   const arch001 = data.arch001.childImageSharp.fluid
@@ -18,7 +19,9 @@ const IndexPage = ({ data }) => {
           <TopSpacer />
           <Grid>
             <CanvasWrapper>
-              <SectionTitle>Faculty of Architecture</SectionTitle>
+              <SectionTitle>
+                <Sparkles>Faculty of Architecture</Sparkles>
+              </SectionTitle>
             </CanvasWrapper>
             <TextWrapper>
               <Text>
@@ -27,18 +30,18 @@ const IndexPage = ({ data }) => {
                 because of the large population size, peers will likely be
                 studying together or helping each other work, but it’s quite the
                 opposite. In this faculty, there are almost no exams, and the
-                main focuses are individual projects involving one’s creativity
-                or projects within small groups. This is very understandable,
-                since everyone has their own unique creativity which needs to be
-                applied individually and not shared among others. According to
-                how much time, effort, and workload needed to put up with in
-                this faculty, students barely go out with friends because most
-                of the people in this faculty are individualistic citizens,
-                striving towards making the best out of their own projects, are
-                always in their own bubble, and don’t feel the need of leaning
-                towards peers for comfort or help, therefore, barely spending
-                money on meals with friends because most of the food students
-                eat are at the faculty.
+                main focuses are <Highlight>individual projects</Highlight>{" "}
+                involving one’s creativity or projects within small groups. This
+                is very understandable, since everyone has their own unique
+                creativity which needs to be applied individually and not shared
+                among others. According to how much time, effort, and workload
+                needed to put up with in this faculty, students barely go out
+                with friends because most of the people in this faculty are
+                individualistic citizens, striving towards making the best out
+                of their own projects, are always in their own bubble, and don’t
+                feel the need of leaning towards peers for comfort or help,
+                therefore, barely spending money on meals with friends because
+                most of the food students eat are at the faculty.
               </Text>
             </TextWrapper>
             <CanvasWrapper>
@@ -65,16 +68,17 @@ const IndexPage = ({ data }) => {
                 However, even with no exams, the due dates of projects can be
                 very stressful since this faculty revolves around art. It is
                 unique compared to other faculties because students' grades are
-                anchored towards real life creativity rather than graded with a
-                strict syllabus and understanding of textbooks. Because of this,
-                students are not worried about their GPA at all, but are worried
-                about the projects and ideas that make up their ports instead.
-                Since a lot of projects are involved and guidelines from each
-                professor are different, the bond between students from
-                different years (age groups) are tightly knitted and students
-                from older years guide the students from younger years all the
-                time, making the event “rub nong” last for almost a whole year.
-                The most popular sport amongst the students is rugby.
+                anchored towards <Highlight>real life creativity</Highlight>{" "}
+                rather than graded with a strict syllabus and understanding of
+                textbooks. Because of this, students are not worried about their
+                GPA at all, but are worried about the projects and ideas that
+                make up their ports instead. Since a lot of projects are
+                involved and guidelines from each professor are different, the
+                bond between students from different years (age groups) are
+                tightly knitted and students from older years guide the students
+                from younger years all the time, making the event “rub nong”
+                last for almost a whole year. The most popular sport amongst the
+                students is <Highlight>rugby</Highlight>.
               </Text>
             </TextWrapper>
             <TextWrapper>
@@ -133,6 +137,12 @@ export const query = graphql`
       }
     }
   }
+`
+
+const Highlight = styled.span`
+  font-family: "Sriracha";
+  font-weight: 500;
+  color: hsl(201, 79%, 46%);
 `
 
 const Main = styled.div`
