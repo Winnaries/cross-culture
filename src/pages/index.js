@@ -678,7 +678,7 @@ const ImageId = styled.span`
   transform-origin: left;
   opacity: 0.7;
   top: -5px;
-  width: min-content;
+  width: max-content;
 `
 
 const LeftCanvasWrapper = styled(CanvasWrapper)`
