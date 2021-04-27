@@ -24,6 +24,10 @@ const IndexPage = ({ data }) => {
   const dent002 = data.dent002.childImageSharp.fluid
   const dent003 = data.dent003.childImageSharp.fluid
 
+  const bascii001 = data.bascii001.childImageSharp.fluid
+  const bascii002 = data.bascii002.childImageSharp.fluid
+  const bascii003 = data.bascii003.childImageSharp.fluid
+
   return (
     <>
       <Seo title="Cultural Identity" />
@@ -123,6 +127,93 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Container>
       </ArchitectSection>
+      <DentistSection>
+        <Container>
+          <Grid>
+            <LeftCanvasWrapper>
+              <SectionTitle>
+                <Sparkles color="hsl(334, 86%, 67%)">
+                  Faculty of <br /> Dentistry
+                </Sparkles>
+              </SectionTitle>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                A faculty that involves medicine and art is known as faculty of
+                dentistry. This faculty is smaller than the faculty of medicine
+                so people in a friend group will range around{" "}
+                <Highlight>6-8 people</Highlight>. This faculty is also a very
+                stressful faculty because, even with all the workload they have,
+                there are also some art skills and projects involved as well.
+                Since majority of the dental students don’t have prior knowledge
+                about hand skills needed to carve teeth, etc, students from the
+                older years will help aid them with what to do making this
+                somewhat a <Highlight>collectivistic</Highlight> society because
+                the younger years respect the older years because the older
+                years teach them things that will help them graduate in time of
+                6 years (that’s the majority goal).
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Dent001>
+                <ImageId>DENT-001</ImageId>
+                <Img fluid={dent001} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Faculty of Dentistry</ImageTitle>
+                  <ImageAlt>Entrance Building</ImageAlt>
+                </ImageLabel>
+              </Dent001>
+            </RightCanvasWrapper>
+            <LeftCanvasWrapper>
+              <Dent002>
+                <ImageId>DENT-002</ImageId>
+                <Img fluid={dent003} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Paragon</ImageTitle>
+                </ImageLabel>
+              </Dent002>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                However, it is very competitive in their own grade. Because they
+                have to balance out studying, and projects involving hand
+                skills, they barely have time to hangout with each other,
+                therefore they only hangout during lunch breaks and after
+                classes since the faculty is located at Siam Paragon. The amount
+                of money they spend on food per meal is around 200-30 baht no
+                more. GPA is also considered a very important topic in this
+                faculty because it is needed to be used in their portfolio after
+                they graduate and want to attend their masters degree and become
+                dental specialists. Since the grading also depends on their
+                classmates and isn’t standardized, this makes them extremely
+                concerned about their <Highlight>grades</Highlight>.
+              </Text>
+            </TextWrapper>
+            <TextWrapper>
+              <Text>
+                The learning environment here is overall very stressful and
+                requires extremely <Highlight>good time management</Highlight>{" "}
+                to balance out between the materials and contents that are
+                learnt, and also applying artistic skills into patients as well.
+                This faculty also involves dentists to have very good
+                communication skills since they need to communicate with future
+                patients. So overall, this faculty portrays characteristics of
+                an individualistic society, but it also teaches dentists to
+                become collectivist when treating their patients.
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Dent003>
+                <ImageId>DENT-003</ImageId>
+                <Img fluid={dent002} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Time Management</ImageTitle>
+                </ImageLabel>
+              </Dent003>
+            </RightCanvasWrapper>
+          </Grid>
+        </Container>
+      </DentistSection>
       <DoctorSection>
         <Container>
           <Grid>
@@ -212,93 +303,113 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Container>
       </DoctorSection>
-      <DentistSection>
+      <InnovativeSection>
         <Container>
           <Grid>
             <LeftCanvasWrapper>
               <SectionTitle>
-                <Sparkles color="hsl(334, 86%, 67%)">
-                  Faculty of <br /> Dentistry
+                <Sparkles color="hsl(197, 92%, 61%)">
+                  BASCii <br />
+                  Faculty of <br />
+                  Innovation
                 </Sparkles>
               </SectionTitle>
             </LeftCanvasWrapper>
             <TextWrapper>
               <Text>
-                A faculty that involves medicine and art is known as faculty of
-                dentistry. This faculty is smaller than the faculty of medicine
-                so people in a friend group will range around{" "}
-                <Highlight>6-8 people</Highlight>. This faculty is also a very
-                stressful faculty because, even with all the workload they have,
-                there are also some art skills and projects involved as well.
-                Since majority of the dental students don’t have prior knowledge
-                about hand skills needed to carve teeth, etc, students from the
-                older years will help aid them with what to do making this
-                somewhat a <Highlight>collectivistic</Highlight> society because
-                the younger years respect the older years because the older
-                years teach them things that will help them graduate in time of
-                6 years (that’s the majority goal).
+                BASCII is a new faculty joining Chulalongkorn University.
+                Students from this faculty are usually students from
+                international schools who are interested in learning about new
+                innovations and technologies that are going to be introduced in
+                the near future. BASCII is an innovation faculty that revolves
+                around start ups, or businesses that are going to help solve
+                real world problems. This faculty has a fair size of students
+                but not as much compared to older faculties making peer groups
+                have around 5-8 people. The interesting thing about the culture
+                of friend groups in this faculty is that each friend group is
+                <Highlight> bonded closely</Highlight> together but rarely
+                interacts with other friend groups. People in their own friend
+                group very oftenly go out with each other to eat, party, and
+                hangout right in the heart of bangkok, whether it would be at
+                Michelin star restaurants, go on private yachts, etc. This shows
+                that the culture of this faculty has a class of its own. The
+                learning environment of this faculty involves having a
+                combination of tests and projects projecting a different kind of
+                stress compared to other faculties. The learning material gets
+                harder as the year progresses. There are many aspects of unique
+                cultural characteristics in this faculty, since it involves
+                different factors from other different faculties.
               </Text>
             </TextWrapper>
             <RightCanvasWrapper>
-              <Dent001>
-                <ImageId>DENT-001</ImageId>
-                <Img fluid={dent001} fadeIn={true} />
+              <Bascii001>
+                <ImageId>BASC-001</ImageId>
+                <Img fluid={bascii001} />
                 <ImageLabel>
-                  <ImageTitle>Faculty of Dentistry</ImageTitle>
-                  <ImageAlt>Entrance Building</ImageAlt>
+                  <ImageTitle>Innovative</ImageTitle>
+                  <ImageAlt>JJ Jordan</ImageAlt>
                 </ImageLabel>
-              </Dent001>
+              </Bascii001>
             </RightCanvasWrapper>
             <LeftCanvasWrapper>
-              <Dent002>
-                <ImageId>DENT-002</ImageId>
-                <Img fluid={dent003} fadeIn={true} />
+              <Bascii002>
+                <ImageId>BASC-002</ImageId>
+                <Img fluid={bascii002} />
                 <ImageLabel>
-                  <ImageTitle>Paragon</ImageTitle>
+                  <ImageTitle>Design Thinking</ImageTitle>
                 </ImageLabel>
-              </Dent002>
+              </Bascii002>
             </LeftCanvasWrapper>
             <TextWrapper>
               <Text>
-                However, it is very competitive in their own grade. Because they
-                have to balance out studying, and projects involving hand
-                skills, they barely have time to hangout with each other,
-                therefore they only hangout during lunch breaks and after
-                classes since the faculty is located at Siam Paragon. The amount
-                of money they spend on food per meal is around 200-30 baht no
-                more. GPA is also considered a very important topic in this
-                faculty because it is needed to be used in their portfolio after
-                they graduate and want to attend their masters degree and become
-                dental specialists. Since the grading also depends on their
-                classmates and isn’t standardized, this makes them extremely
-                concerned about their <Highlight>grades</Highlight>.
+                For BASCII, it is like a combination of Engineering and BBA.
+                Creative ideas need to be put into{" "}
+                <Highlight>innovative projects</Highlight>. And everytime,
+                something evolves around creativity, it portrays an
+                individualistic characteristic because creativity of one person
+                varies from another. On the other hand, it also shows
+                collectivist characteristics because students from this faculty
+                tend to study together in their friend group. Aside from
+                everyone having their own thoughts and ideas put into their
+                innovative projects, this faculty promotes and believes that
+                creativity will spark from a good learning environment. Whether
+                it would be, large meeting rooms designed like a business
+                meeting, or the characteristic of each eager teacher wanting
+                students to take the knowledge that they learnt and put it into
+                real life practice and use. In order to promote social thinking
+                and reduce stress towards students, there is a{" "}
+                <Highlight>pingpong table</Highlight> and relaxing activities
+                for the students to participate in during their free time.
               </Text>
             </TextWrapper>
             <TextWrapper>
               <Text>
-                The learning environment here is overall very stressful and
-                requires extremely <Highlight>good time management</Highlight>{" "}
-                to balance out between the materials and contents that are
-                learnt, and also applying artistic skills into patients as well.
-                This faculty also involves dentists to have very good
-                communication skills since they need to communicate with future
-                patients. So overall, this faculty portrays characteristics of
-                an individualistic society, but it also teaches dentists to
-                become collectivist when treating their patients.
+                A unique difference from BASCII and BBA with projects is that,
+                BBA will do Business cases which involves just stating the
+                problems in the business, but BASCII has a business model, this
+                model then solves the problem in the business not just pointing
+                it out. So in conclusion, BASCII holds both a{" "}
+                <Highlight>collectivist and individualistic</Highlight> society.
+                The collectivist society happens in their own friend group and
+                are usually prone to spending more money hanging out with each
+                other than any other faculty. However, the individualistic
+                society happens between each of the friend groups since they
+                rarely hang out with other groups other than their own.
               </Text>
             </TextWrapper>
             <RightCanvasWrapper>
-              <Dent003>
-                <ImageId>DENT-003</ImageId>
-                <Img fluid={dent002} fadeIn={true} />
+              <Bascii003>
+                <ImageId>BASC-003</ImageId>
+                <Img fluid={bascii003} />
                 <ImageLabel>
-                  <ImageTitle>Time Management</ImageTitle>
+                  <ImageTitle>Innovative</ImageTitle>
                 </ImageLabel>
-              </Dent003>
+              </Bascii003>
             </RightCanvasWrapper>
           </Grid>
         </Container>
-      </DentistSection>
+      </InnovativeSection>
+
       <EngineeringSection>
         <Container>
           <Grid>
@@ -395,6 +506,63 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Container>
       </EngineeringSection>
+      <BbaSection>
+        <Container>
+          <Grid>
+            <LeftCanvasWrapper>
+              <SectionTitle>
+                <Sparkles color="hsl(356, 75%, 53%)">
+                  Faculty of <br />
+                  Business <br />
+                  Administration
+                </Sparkles>
+              </SectionTitle>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                BBA, known as Bachelor of Business Administration, is a large
+                faculty making peer groups commonly around 10-20 people. Since
+                there are quizzes in almost every single class and the exams are
+                extremely stressful and hard, students usually study in groups
+                to share their knowledge with each other to get through the
+                year. They usually <Highlight>study together</Highlight> at
+                Samyan Mitrtown and other malls making the price of each meal
+                range around 500-600 baht per person. This may seem like a
+                collectivist society to an extent, according to how much peer
+                time is involved. However, it can be a highly competitive
+                individualistic faculty since students here are extremely
+                concerned about their GPA, trying to answer questions first to
+                get their participation scores, and in common cases, being too
+                possessive about sharing the knowledge they have. Because this
+                is a Business administration, students have to do{" "}
+                <Highlight>business cases</Highlight> making them have to find
+                internships while learning as well. This is to be more
+                knowledgeable in their field of study and to make sure there are
+                jobs available and waiting for them post graduation.
+              </Text>
+            </TextWrapper>
+            <TextWrapper>
+              <Text>
+                All of this is achieved through{" "}
+                <Highlight>connections</Highlight>. In order to find
+                connections, they strictly go to dinners, cafes, and golf with
+                people whom they believe can bring them their spot of
+                internships, whether it would be with their friends, their
+                friend’s parents, or sometimes they even tour business companies
+                themselves with a minimum of 4 times a month. You see, the
+                unique factor about this faculty is the amount of effort they
+                put in to find connections. They do activities and have to keep
+                up with their studies as well. So in conclusion, students in
+                this faculty have to acquire traits of a collectivist, such as
+                having good verbal and physical communication like, manners,
+                reputation, and flexibility in fitting in with diverse groups of
+                people, so they can achieve their own individualistic goals in
+                the future.
+              </Text>
+            </TextWrapper>
+          </Grid>
+        </Container>
+      </BbaSection>
     </>
   )
 }
@@ -502,6 +670,27 @@ export const query = graphql`
     dent003: file(relativePath: { eq: "dentists/kath-barcinas.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 180, maxHeight: 350, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bascii001: file(relativePath: { eq: "innovation/jj-jordan.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 300, maxHeight: 450, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bascii002: file(relativePath: { eq: "innovation/kelly-sikkema.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 180, maxHeight: 300, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bascii003: file(relativePath: { eq: "innovation/daria-nepriakhina.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 350, maxHeight: 240, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -651,6 +840,25 @@ const Dent003 = styled(CanvasWrapper)`
   height: 180px;
 `
 
+const Bascii001 = styled(CanvasWrapper)`
+  position: absolute;
+  width: min(250px, 90%);
+  height: auto;
+`
+
+const Bascii002 = styled(CanvasWrapper)`
+  position: absolute;
+  right: 0;
+  width: 180px;
+  height: 270px;
+`
+
+const Bascii003 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 340px;
+  height: auto;
+`
+
 const ImageLabel = styled.div`
   margin-top: 0.5rem;
   display: flex;
@@ -774,5 +982,47 @@ const DoctorSection = styled(Main)`
 
   ${Highlight} {
     color: hsl(42, 87%, 55%);
+  }
+`
+
+const InnovativeSection = styled(Main)`
+  background-color: hsl(49, 100%, 96%);
+
+  ${Text} {
+    color: hsl(15, 86%, 30%);
+  }
+
+  ${SectionTitle} {
+    color: hsl(22, 82%, 39%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(29, 80%, 44%);
+  }
+
+  ${Highlight} {
+    color: hsl(197, 92%, 61%);
+  }
+`
+
+const BbaSection = styled(Main)`
+  background-color: hsl(240, 100%, 97%);
+
+  ${Text} {
+    color: hsl(245, 100%, 27%);
+  }
+
+  ${SectionTitle} {
+    color: hsl(245, 86%, 40%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(245, 79%, 52%);
+  }
+
+  ${Highlight} {
+    color: hsl(356, 75%, 53%);
   }
 `
