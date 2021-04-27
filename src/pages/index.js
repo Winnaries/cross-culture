@@ -20,6 +20,10 @@ const IndexPage = ({ data }) => {
   const med002 = data.med002.childImageSharp.fluid
   const med003 = data.med003.childImageSharp.fluid
 
+  const dent001 = data.dent001.childImageSharp.fluid
+  const dent002 = data.dent002.childImageSharp.fluid
+  const dent003 = data.dent003.childImageSharp.fluid
+
   return (
     <>
       <Seo title="Cultural Identity" />
@@ -208,6 +212,93 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Container>
       </DoctorSection>
+      <DentistSection>
+        <Container>
+          <Grid>
+            <LeftCanvasWrapper>
+              <SectionTitle>
+                <Sparkles color="hsl(334, 86%, 67%)">
+                  Faculty of <br /> Dentistry
+                </Sparkles>
+              </SectionTitle>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                A faculty that involves medicine and art is known as faculty of
+                dentistry. This faculty is smaller than the faculty of medicine
+                so people in a friend group will range around{" "}
+                <Highlight>6-8 people</Highlight>. This faculty is also a very
+                stressful faculty because, even with all the workload they have,
+                there are also some art skills and projects involved as well.
+                Since majority of the dental students don’t have prior knowledge
+                about hand skills needed to carve teeth, etc, students from the
+                older years will help aid them with what to do making this
+                somewhat a <Highlight>collectivistic</Highlight> society because
+                the younger years respect the older years because the older
+                years teach them things that will help them graduate in time of
+                6 years (that’s the majority goal).
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Dent001>
+                <ImageId>DENT-001</ImageId>
+                <Img fluid={dent001} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Faculty of Dentistry</ImageTitle>
+                  <ImageAlt>Entrance Building</ImageAlt>
+                </ImageLabel>
+              </Dent001>
+            </RightCanvasWrapper>
+            <LeftCanvasWrapper>
+              <Dent002>
+                <ImageId>DENT-002</ImageId>
+                <Img fluid={dent003} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Paragon</ImageTitle>
+                </ImageLabel>
+              </Dent002>
+            </LeftCanvasWrapper>
+            <TextWrapper>
+              <Text>
+                However, it is very competitive in their own grade. Because they
+                have to balance out studying, and projects involving hand
+                skills, they barely have time to hangout with each other,
+                therefore they only hangout during lunch breaks and after
+                classes since the faculty is located at Siam Paragon. The amount
+                of money they spend on food per meal is around 200-30 baht no
+                more. GPA is also considered a very important topic in this
+                faculty because it is needed to be used in their portfolio after
+                they graduate and want to attend their masters degree and become
+                dental specialists. Since the grading also depends on their
+                classmates and isn’t standardized, this makes them extremely
+                concerned about their <Highlight>grades</Highlight>.
+              </Text>
+            </TextWrapper>
+            <TextWrapper>
+              <Text>
+                The learning environment here is overall very stressful and
+                requires extremely <Highlight>good time management</Highlight>{" "}
+                to balance out between the materials and contents that are
+                learnt, and also applying artistic skills into patients as well.
+                This faculty also involves dentists to have very good
+                communication skills since they need to communicate with future
+                patients. So overall, this faculty portrays characteristics of
+                an individualistic society, but it also teaches dentists to
+                become collectivist when treating their patients.
+              </Text>
+            </TextWrapper>
+            <RightCanvasWrapper>
+              <Dent003>
+                <ImageId>DENT-003</ImageId>
+                <Img fluid={dent002} fadeIn={true} />
+                <ImageLabel>
+                  <ImageTitle>Time Management</ImageTitle>
+                </ImageLabel>
+              </Dent003>
+            </RightCanvasWrapper>
+          </Grid>
+        </Container>
+      </DentistSection>
       <EngineeringSection>
         <Container>
           <Grid>
@@ -392,6 +483,29 @@ export const query = graphql`
         }
       }
     }
+    dent001: file(
+      relativePath: { eq: "dentists/chula-faculty-dentistry.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500, maxHeight: 500, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    dent002: file(relativePath: { eq: "dentists/icons8-team.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 300, maxHeight: 180, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    dent003: file(relativePath: { eq: "dentists/kath-barcinas.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 180, maxHeight: 350, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
@@ -518,6 +632,25 @@ const Eng004 = styled(CanvasWrapper)`
   top: 40px;
 `
 
+const Dent001 = styled(CanvasWrapper)`
+  position: relative;
+  width: min(350px, 100%);
+  height: 200px;
+`
+
+const Dent002 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  right: 0;
+`
+
+const Dent003 = styled(CanvasWrapper)`
+  position: relative;
+  width: 250px;
+  height: 180px;
+`
+
 const ImageLabel = styled.div`
   margin-top: 0.5rem;
   display: flex;
@@ -599,6 +732,27 @@ const EngineeringSection = styled(Main)`
 
   ${Highlight} {
     color: hsl(354, 85%, 44%);
+  }
+`
+
+const DentistSection = styled(Main)`
+  background-color: hsl(186, 100%, 94%);
+
+  ${Text} {
+    color: hsl(184, 91%, 15%);
+  }
+
+  ${SectionTitle} {
+    color: hsl(185, 84%, 25%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(185, 81%, 29%);
+  }
+
+  ${Highlight} {
+    color: hsl(334, 86%, 67%);
   }
 `
 
