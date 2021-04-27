@@ -28,6 +28,10 @@ const IndexPage = ({ data }) => {
   const bascii002 = data.bascii002.childImageSharp.fluid
   const bascii003 = data.bascii003.childImageSharp.fluid
 
+  const bba001 = data.bba001.childImageSharp.fluid
+  const bba002 = data.bba002.childImageSharp.fluid
+  const bba003 = data.bba003.childImageSharp.fluid
+
   return (
     <>
       <Seo title="Cultural Identity" />
@@ -409,7 +413,6 @@ const IndexPage = ({ data }) => {
           </Grid>
         </Container>
       </InnovativeSection>
-
       <EngineeringSection>
         <Container>
           <Grid>
@@ -541,6 +544,26 @@ const IndexPage = ({ data }) => {
                 jobs available and waiting for them post graduation.
               </Text>
             </TextWrapper>
+            <RightCanvasWrapper>
+              <Bba001>
+                <ImageId>BBA-001</ImageId>
+                <Img fluid={bba001} alt="" />
+                <ImageLabel>
+                  <ImageTitle>Business</ImageTitle>
+                  <ImageAlt>Pollock & Vita</ImageAlt>
+                </ImageLabel>
+              </Bba001>
+            </RightCanvasWrapper>
+            <LeftCanvasWrapper>
+              <Bba003>
+                <ImageId>BBA-003</ImageId>
+                <Img fluid={bba003} alt="" />
+                <ImageLabel>
+                  <ImageTitle>Golfing</ImageTitle>
+                  <ImageAlt>Juan Gomez</ImageAlt>
+                </ImageLabel>
+              </Bba003>
+            </LeftCanvasWrapper>
             <TextWrapper>
               <Text>
                 All of this is achieved through{" "}
@@ -560,6 +583,16 @@ const IndexPage = ({ data }) => {
                 the future.
               </Text>
             </TextWrapper>
+            <RightCanvasWrapper>
+              <Bba002>
+                <ImageId>BBA-002</ImageId>
+                <Img fluid={bba002} alt="" />
+                <ImageLabel>
+                  <ImageTitle>Reading News</ImageTitle>
+                  <ImageAlt>Adeolu Eletu</ImageAlt>
+                </ImageLabel>
+              </Bba002>
+            </RightCanvasWrapper>
           </Grid>
         </Container>
       </BbaSection>
@@ -691,6 +724,27 @@ export const query = graphql`
     bascii003: file(relativePath: { eq: "innovation/daria-nepriakhina.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 350, maxHeight: 240, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bba001: file(relativePath: { eq: "business/sean-pollock.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 270, maxHeight: 180, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bba002: file(relativePath: { eq: "business/adeolu-eletu.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 270, maxHeight: 180, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bba003: file(relativePath: { eq: "business/juan-gomez.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 200, maxHeight: 400, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -859,6 +913,26 @@ const Bascii003 = styled(CanvasWrapper)`
   height: auto;
 `
 
+const Bba001 = styled(CanvasWrapper)`
+  position: relative;
+  width: 270px;
+  height: 180px;
+`
+
+const Bba002 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 270px;
+  height: 180px;
+`
+
+const Bba003 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 200px;
+  height: auto;
+  top: -100px;
+  right: 0;
+`
+
 const ImageLabel = styled.div`
   margin-top: 0.5rem;
   display: flex;
@@ -1019,7 +1093,7 @@ const BbaSection = styled(Main)`
 
   ${ImageLabel},
   ${ImageId} {
-    color: hsl(245, 79%, 52%);
+    color: hsl(245, 64%, 70%);
   }
 
   ${Highlight} {
