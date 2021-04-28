@@ -10,7 +10,7 @@ export const NavBar = styled.div`
   top: 0;
   background: white;
   border-bottom: 1px solid hsl(210, 31%, 80%);
-  z-index: 1;
+  z-index: 99;
   padding: 0 1.5rem;
   align-items: center;
 `
@@ -20,13 +20,18 @@ export const PageTitle = styled.span`
   color: hsl(209, 61%, 16%);
   font-size: 18px;
   height: 100%;
-  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: row;
   position: relative;
   margin-right: 2rem;
+  width: max-content;
+  white-space: nowrap;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 
 export const Menu = styled.nav`

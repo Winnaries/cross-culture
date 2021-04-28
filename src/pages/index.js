@@ -76,16 +76,16 @@ const IndexPage = ({ data }) => {
                 most of the food students eat are at the faculty.
               </Text>
             </TextWrapper>
-            <CanvasWrapper>
+            <RightCanvasWrapper>
               <ImageId>ARCH-001</ImageId>
-              <Canvas>
+              <Arch001>
                 <Img fluid={arch001} alt="" fadeIn={true} />
-              </Canvas>
+              </Arch001>
               <ImageLabel>
                 <ImageTitle>Faculty of Architecture</ImageTitle>
                 <ImageAlt>Entrance Building</ImageAlt>
               </ImageLabel>
-            </CanvasWrapper>
+            </RightCanvasWrapper>
             <LeftCanvasWrapper>
               <Arch002>
                 <ImageId>ARCH-002</ImageId>
@@ -142,13 +142,13 @@ const IndexPage = ({ data }) => {
       <DentistSection>
         <Container>
           <Grid>
-            <LeftCanvasWrapper>
+            <CanvasWrapper>
               <SectionTitle>
                 <Sparkles color="hsl(334, 86%, 67%)">
                   Faculty of <br /> Dentistry
                 </Sparkles>
               </SectionTitle>
-            </LeftCanvasWrapper>
+            </CanvasWrapper>
             <TextWrapper>
               <Text>
                 A faculty that involves medicine and art is known as faculty of
@@ -232,7 +232,7 @@ const IndexPage = ({ data }) => {
             <CanvasWrapper>
               <SectionTitle>
                 <Sparkles>
-                  Faculty of <br /> Medcine
+                  Faculty of <br /> Medicine
                 </Sparkles>
               </SectionTitle>
             </CanvasWrapper>
@@ -318,7 +318,7 @@ const IndexPage = ({ data }) => {
       <InnovativeSection>
         <Container>
           <Grid>
-            <LeftCanvasWrapper>
+            <CanvasWrapper>
               <SectionTitle>
                 <Sparkles color="hsl(197, 92%, 61%)">
                   BASCii <br />
@@ -326,7 +326,7 @@ const IndexPage = ({ data }) => {
                   Innovation
                 </Sparkles>
               </SectionTitle>
-            </LeftCanvasWrapper>
+            </CanvasWrapper>
             <TextWrapper>
               <Text>
                 BASCII is a new faculty joining Chulalongkorn University.
@@ -424,13 +424,13 @@ const IndexPage = ({ data }) => {
       <EngineeringSection>
         <Container>
           <Grid>
-            <LeftCanvasWrapper>
+            <CanvasWrapper>
               <SectionTitle>
                 <Sparkles color="hsl(360, 83%, 62%)">
                   Faculty of <br /> Engineering
                 </Sparkles>
               </SectionTitle>
-            </LeftCanvasWrapper>
+            </CanvasWrapper>
             <TextWrapper>
               <Text>
                 The Faculty of Engineering revolves around a lot of fun but also
@@ -520,7 +520,7 @@ const IndexPage = ({ data }) => {
       <BbaSection>
         <Container>
           <Grid>
-            <LeftCanvasWrapper>
+            <CanvasWrapper>
               <SectionTitle>
                 <Sparkles color="hsl(356, 75%, 53%)">
                   Faculty of <br />
@@ -528,7 +528,7 @@ const IndexPage = ({ data }) => {
                   Administration
                 </Sparkles>
               </SectionTitle>
-            </LeftCanvasWrapper>
+            </CanvasWrapper>
             <TextWrapper>
               <Text>
                 BBA, known as Bachelor of Business Administration, is a large
@@ -760,10 +760,47 @@ export const query = graphql`
   }
 `
 
-const Highlight = styled.span`
-  font-family: "Sriracha";
+/**
+ * Image Labeling Features
+ */
+
+const ImageLabel = styled.div`
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const ImageTitle = styled.span`
+  font-size: 1rem;
   font-weight: 500;
 `
+
+const ImageAlt = styled.span`
+  font-size: 0.875rem;
+  font-weight: 400;
+`
+
+const ImageId = styled.span`
+  transform: rotate(90deg);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: georgia, serif;
+  position: absolute;
+  left: calc(20px + 100%);
+  transform-origin: left;
+  opacity: 0.7;
+  top: -5px;
+  width: max-content;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`
+
+/**
+ * Layout Features
+ */
 
 const Main = styled.div`
   width: 100%;
@@ -776,6 +813,10 @@ const Main = styled.div`
 const TopSpacer = styled.div`
   width: 100%;
   height: 2rem;
+
+  @media (max-width: 1400px) {
+    height: 1rem;
+  }
 `
 
 const Container = styled.div`
@@ -787,7 +828,11 @@ const Container = styled.div`
   position: relative;
   flex-flow: column;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
+    transform: translateX(15px);
+  }
+
+  @media (min-width: 1400px) {
     transform: translateX(90px);
   }
 `
@@ -799,13 +844,110 @@ const Grid = styled.div`
   width: 100%;
   height: auto;
 
-  grid-template-columns: 1fr 12fr minmax(0, 8fr);
   grid-template-rows: 1fr;
   grid-column-gap: 2.5rem;
+  grid-template-columns: 1fr;
+  padding: 1rem 2rem 1rem 2rem;
 
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 400px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1rem;
+    padding: 2rem 4rem 3rem 3rem;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: 8fr minmax(0, 4fr);
+    padding: 2rem 4rem 3rem 3rem;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 8fr minmax(0, 4fr);
+    transform: translateX(20px);
+    padding: 3rem 2rem;
+  }
+
+  @media (min-width: 1400px) {
+    grid-template-columns: 1fr 12fr minmax(0, 8fr);
     padding: 3rem;
   }
+`
+
+const CanvasWrapper = styled.div`
+  width: min(600px, 100%);
+  height: auto;
+  place-self: flex-start center;
+  position: relative;
+
+  @media (max-width: 1200px) {
+    place-self: flex-start flex-start;
+  }
+`
+
+const RightCanvasWrapper = styled(CanvasWrapper)`
+  grid-column: 3 / 4;
+
+  @media (max-width: 1200px) {
+    grid-column: 2 / 3;
+  }
+
+  @media (max-width: 800px) {
+    grid-column: 1 / 2;
+    position: relative;
+    width: 100%;
+    height: min(400px, auto);
+  }
+
+  @media (max-width: 500px) {
+    margin-bottom: 1rem;
+  }
+`
+
+const LeftCanvasWrapper = styled(CanvasWrapper)`
+  grid-column: 1 / 2;
+
+  ${ImageId} {
+    transform: rotate(-90deg);
+    position: absolute;
+    transform-origin: right;
+    left: auto;
+    right: calc(100% + 20px);
+    top: -5px;
+  }
+
+  @media (max-width: 1400px) {
+    ${CanvasWrapper} {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`
+
+const TextWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column;
+  grid-column: 2 / 3;
+
+  & > *:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    grid-column: 1 / 2;
+  }
+`
+
+/**
+ * Shared Features
+ */
+
+const Highlight = styled.span`
+  font-family: "Sriracha";
+  font-weight: 500;
 `
 
 const SectionTitle = styled.h2`
@@ -816,17 +958,43 @@ const SectionTitle = styled.h2`
   line-height: 1.4;
   padding: 0;
   width: max-content;
+
+  @media (max-width: 1200px) {
+    position: relative;
+    left: 0;
+    right: auto;
+  }
 `
 
-const CanvasWrapper = styled.div`
-  width: min(600px, 100%);
-  height: auto;
-  place-self: flex-start center;
-  position: relative;
+const Text = styled.p`
+  width: 100%;
+  padding: 0 1rem;
+  line-height: 1.4;
+
+  @media (max-width: 1200px) {
+    padding: 0;
+    padding-right: 1rem;
+  }
 `
 
-const RightCanvasWrapper = styled(CanvasWrapper)`
-  grid-column: 3 / 4;
+/**
+ * Architect Styles
+ */
+
+const ArchitectSection = styled(Main)`
+  ${SectionTitle} {
+    @media (max-width: 1400px) and (min-width: 1200px) {
+      transform: translateX(15px);
+    }
+  }
+
+  ${ImageLabel} {
+    opacity: 0.8;
+  }
+
+  ${Highlight} {
+    color: hsl(201, 79%, 46%);
+  }
 `
 
 const Arch002 = styled(CanvasWrapper)`
@@ -841,210 +1009,14 @@ const Arch003 = styled(CanvasWrapper)`
   height: auto;
 `
 
-const Canvas = styled.div`
+const Arch001 = styled(CanvasWrapper)`
   width: 100%;
   height: auto;
 `
-const Eng001 = styled(CanvasWrapper)``
 
-const Eng002 = styled(CanvasWrapper)`
-  width: 100%;
-  right: 0;
-`
-
-const Med002 = styled(CanvasWrapper)`
-  width: 200px;
-  right: 0;
-  position: absolute;
-`
-
-const Med001 = styled(CanvasWrapper)`
-  width: min(275px, 100%);
-  position: absolute;
-`
-
-const Med003 = styled(CanvasWrapper)`
-  width: 180px;
-  height: 180px;
-  position: relative;
-`
-
-const Eng003 = styled(CanvasWrapper)`
-  position: absolute;
-  width: 120px;
-  top: -60px;
-  right: 0;
-`
-
-const Eng004 = styled(CanvasWrapper)`
-  position: absolute;
-  width: 120px;
-  right: 140px;
-  top: 40px;
-`
-
-const Dent001 = styled(CanvasWrapper)`
-  position: relative;
-  width: min(350px, 100%);
-  height: 200px;
-`
-
-const Dent002 = styled(CanvasWrapper)`
-  position: absolute;
-  width: 150px;
-  height: 300px;
-  right: 0;
-`
-
-const Dent003 = styled(CanvasWrapper)`
-  position: relative;
-  width: 250px;
-  height: 180px;
-`
-
-const Bascii001 = styled(CanvasWrapper)`
-  position: absolute;
-  width: min(250px, 90%);
-  height: auto;
-`
-
-const Bascii002 = styled(CanvasWrapper)`
-  position: absolute;
-  right: 0;
-  width: 180px;
-  height: 270px;
-`
-
-const Bascii003 = styled(CanvasWrapper)`
-  position: absolute;
-  width: 340px;
-  height: auto;
-`
-
-const Bba001 = styled(CanvasWrapper)`
-  position: relative;
-  width: 270px;
-  height: 180px;
-`
-
-const Bba002 = styled(CanvasWrapper)`
-  position: absolute;
-  width: 270px;
-  height: 180px;
-`
-
-const Bba003 = styled(CanvasWrapper)`
-  position: absolute;
-  width: 200px;
-  height: auto;
-  top: -100px;
-  right: 0;
-`
-
-const ImageLabel = styled.div`
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const ImageTitle = styled.span`
-  font-size: 16px;
-  font-weight: 500;
-`
-
-const ImageAlt = styled.span`
-  font-size: 14px;
-  font-weight: 400;
-`
-
-const ImageId = styled.span`
-  transform: rotate(90deg);
-  font-size: 16px;
-  font-weight: 400;
-  font-family: georgia, serif;
-  position: absolute;
-  right: -98px;
-  transform-origin: left;
-  opacity: 0.7;
-  top: -5px;
-  width: max-content;
-`
-
-const LeftCanvasWrapper = styled(CanvasWrapper)`
-  grid-column: 1 / 2;
-
-  ${ImageId} {
-    transform: rotate(-90deg);
-    position: absolute;
-    transform-origin: right;
-    left: -98px;
-    top: -5px;
-  }
-`
-
-const Text = styled.p`
-  width: 100%;
-  padding: 0 1rem;
-  line-height: 1.4;
-`
-
-const TextWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-flow: column;
-  grid-column: 2 / 3;
-
-  & > *:not(:first-child) {
-    margin-top: 1.5rem;
-  }
-`
-
-const ArchitectSection = styled(Main)`
-  ${Highlight} {
-    color: hsl(201, 79%, 46%);
-  }
-`
-
-const EngineeringSection = styled(Main)`
-  background-color: hsl(341, 100%, 98%);
-
-  ${SectionTitle},
-  ${Text} {
-    color: hsl(322, 93%, 27%);
-  }
-
-  ${ImageLabel},
-  ${ImageId} {
-    color: hsl(324, 48%, 60%);
-  }
-
-  ${Highlight} {
-    color: hsl(354, 85%, 44%);
-  }
-`
-
-const DentistSection = styled(Main)`
-  background-color: hsl(186, 100%, 94%);
-
-  ${Text} {
-    color: hsl(184, 91%, 15%);
-  }
-
-  ${SectionTitle} {
-    color: hsl(185, 84%, 25%);
-  }
-
-  ${ImageLabel},
-  ${ImageId} {
-    color: hsl(185, 81%, 29%);
-  }
-
-  ${Highlight} {
-    color: hsl(334, 86%, 67%);
-  }
-`
+/**
+ * Medicine Styles
+ */
 
 const DoctorSection = styled(Main)`
   background-color: hsl(152, 68%, 96%);
@@ -1067,6 +1039,140 @@ const DoctorSection = styled(Main)`
   }
 `
 
+const Med001 = styled(CanvasWrapper)`
+  width: min(275px, 100%);
+  position: absolute;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+`
+
+const Med002 = styled(CanvasWrapper)`
+  width: 200px;
+  right: 0;
+  position: absolute;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+`
+
+const Med003 = styled(CanvasWrapper)`
+  width: 180px;
+  height: 180px;
+  position: relative;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: auto;
+  }
+`
+
+/**
+ * Engineering Styles
+ */
+
+const EngineeringSection = styled(Main)`
+  background-color: hsl(341, 100%, 98%);
+
+  ${SectionTitle},
+  ${Text} {
+    color: hsl(322, 93%, 27%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(324, 48%, 60%);
+  }
+
+  ${Highlight} {
+    color: hsl(354, 85%, 44%);
+  }
+`
+
+const Eng001 = styled(CanvasWrapper)``
+
+const Eng002 = styled(CanvasWrapper)`
+  width: 100%;
+  right: 0;
+`
+
+const Eng003 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 120px;
+  top: -60px;
+  right: 0;
+`
+
+const Eng004 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 120px;
+  right: 140px;
+  top: 40px;
+`
+
+/**
+ * Dentist styles
+ */
+
+const DentistSection = styled(Main)`
+  background-color: hsl(186, 100%, 94%);
+
+  ${Text} {
+    color: hsl(184, 91%, 15%);
+  }
+
+  ${SectionTitle} {
+    color: hsl(185, 84%, 25%);
+  }
+
+  ${ImageLabel},
+  ${ImageId} {
+    color: hsl(185, 81%, 29%);
+  }
+
+  ${Highlight} {
+    color: hsl(334, 86%, 67%);
+  }
+`
+
+const Dent001 = styled(CanvasWrapper)`
+  position: relative;
+  width: min(350px, 100%);
+  height: 200px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: auto;
+  }
+`
+
+const Dent002 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  right: 0;
+`
+
+const Dent003 = styled(CanvasWrapper)`
+  position: relative;
+  width: 250px;
+  height: 180px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`
+
+/**
+ * Bascii Styles
+ */
+
 const InnovativeSection = styled(Main)`
   background-color: hsl(49, 100%, 96%);
 
@@ -1088,8 +1194,43 @@ const InnovativeSection = styled(Main)`
   }
 `
 
+const Bascii001 = styled(CanvasWrapper)`
+  position: absolute;
+  width: min(250px, 90%);
+  height: auto;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+`
+
+const Bascii002 = styled(CanvasWrapper)`
+  position: absolute;
+  right: 0;
+  width: 180px;
+  height: 270px;
+`
+
+const Bascii003 = styled(CanvasWrapper)`
+  position: relative;
+  width: 340px;
+  height: auto;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`
+
+/**
+ * Business Styles
+ */
+
 const BbaSection = styled(Main)`
   background-color: hsl(240, 100%, 97%);
+  height: max-content;
+  overflow: hidden;
 
   ${Text} {
     color: hsl(245, 100%, 27%);
@@ -1097,6 +1238,10 @@ const BbaSection = styled(Main)`
 
   ${SectionTitle} {
     color: hsl(245, 86%, 40%);
+
+    @media (max-width: 1400px) and (min-width: 1200px) {
+      transform: translateX(20px);
+    }
   }
 
   ${ImageLabel},
@@ -1106,5 +1251,41 @@ const BbaSection = styled(Main)`
 
   ${Highlight} {
     color: hsl(356, 75%, 53%);
+  }
+`
+
+const Bba001 = styled(CanvasWrapper)`
+  position: relative;
+  width: 270px;
+  height: 180px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+`
+
+const Bba002 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 270px;
+  height: 180px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    position: relative;
+    display: none;
+  }
+`
+
+const Bba003 = styled(CanvasWrapper)`
+  position: absolute;
+  width: 200px;
+  height: auto;
+  top: -100px;
+  right: 0;
+
+  @media (max-width: 800px) {
+    position: relative;
   }
 `

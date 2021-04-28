@@ -188,14 +188,14 @@ const Highlight = styled.span`
 const Canvas = styled.div`
   position: relative;
   display: grid;
-  margin-bottom: 3rem;
+  margin: 2rem 0 3rem;
   grid-template-columns: 1fr 3fr 1fr;
   width: 100%;
-  margin-top: 3rem;
   grid-column-gap: 1rem;
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    margin: 1rem 0 2rem;
   }
 `
 
@@ -278,16 +278,16 @@ const ScrollingWrapper = styled.div`
 `
 
 const scroll = keyframes`
-    0% {
-        transform: translateX(800px);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-3000px);
+  }
 `
 
 const ScrollingBackground = styled.div`
-  width: max-content;
-  animation: ${scroll} 90s linear infinite both;
+  width: 100%;
   opacity: 0.93;
+  animation: ${scroll} 85s linear infinite both;
 `
