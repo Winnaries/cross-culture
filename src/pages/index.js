@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Seo from "../components/seo"
 import Sparkles from "../components/sparkles"
+import { NavBar, Menu, MenuButton, PageTitle } from "../components/navbar"
 
 const IndexPage = ({ data }) => {
   const arch001 = data.arch001.childImageSharp.fluid
@@ -35,6 +36,13 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <Seo title="Cultural Identity" />
+      <NavBar>
+        <PageTitle>CU Cultural Identities</PageTitle>
+        <Menu>
+          <MenuButton active>Faculty</MenuButton>
+          <MenuButton to="/traditions">Traditions</MenuButton>
+        </Menu>
+      </NavBar>
       <ArchitectSection>
         <Container>
           <TopSpacer />
