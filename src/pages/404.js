@@ -1,14 +1,12 @@
 import * as React from "react"
+import { redirectTo } from "@reach/router"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const NotFoundPage = () => {
+  React.useLayoutEffect(() => {
+    redirectTo("/")
+  })
 
-const NotFoundPage = () => (
-  <Layout>
-    <Seo title="404: Not found" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+  return <div></div>
+}
 
 export default NotFoundPage
